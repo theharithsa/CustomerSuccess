@@ -3,10 +3,10 @@ metadata:
   dependencies:
     apps:
       - id: dynatrace.automations
-        version: ^1.2187.2
+        version: ^1.2450.0
   inputs: []
 workflow:
-  title: Software Obsolescence Management workflow 1.3.1 (Refresh Data & Alert)
+  title: Software Obsolescence Management workflow 1.4.0 (Refresh Data & Alert)
   tasks:
     run_javascript_1:
       name: run_javascript_1
@@ -371,16 +371,32 @@ workflow:
 
           const technologyToProductSlugMap = {
             'SPRING': 'spring-boot',
+            'JAVA:Oracle Corporation': 'oracle-jdk',
+            'JAVA:Red Hat, Inc.': 'redhat-build-of-openjdk',
+            'JAVA:Microsoft Corporation': 'microsoft-build-of-openjdk',
             'JAVA': 'openjdk-builds-from-oracle'
           };
 
           async function getFreshTechnologyData(technology, edition, version) {
             let data;
             let matchedEolTechnologies = [];
+            // Match the relevant entries from technologyToProductSlugMap based on the input technology and edition data
+            let technologyToProductSlugMapMatches = Object.keys(technologyToProductSlugMap).filter(e => `${technology}:${edition}`.startsWith(e));
+            // Sort matches by longest identifier (technology + edition vs only technology) first, which is considered a basic proxy to relevance
+            technologyToProductSlugMapMatches.sort(function (a, b) {
+              if (a.length < b.length) {
+                return 1;
+              }
+              if (a.length > b.length) {
+                return -1;
+              }
+              return 0;
+            });
+            // console.log(technologyToProductSlugMapMatches);
             eolTechnologies.forEach(eolTechnology => {
               let score = 0;
               // Add points thanks to the manual technologyToProductSlugMap
-              if(technologyToProductSlugMap[technology] === eolTechnology.slug) score = score + 10;
+                if(technologyToProductSlugMapMatches[0] && (technologyToProductSlugMap[technologyToProductSlugMapMatches[0]] === eolTechnology.slug)) score = score + 10;
               // Scoring based on product slug versus technology
               if(technology.toLowerCase().match(/[a-z]+/g).join('') === eolTechnology.slug.match(/[a-z]+/g).join('')) score = score + 10;
               eolTechnology.slug.split('-').forEach(eolTechSlugSection => {
@@ -756,4 +772,5 @@ workflow:
   result: null
   input: {}
   hourlyExecutionLimit: 1000
+  guide: null
   type: STANDARD
