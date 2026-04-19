@@ -20,6 +20,32 @@ The Dynatrace Tenant Review is:
  - **Fast**: The analytics happens where the data resides, in Grail™.
  - **Open source**: Copy, inspect, customize and share it in a few clicks!
 
+## Adoption & Audit Dashboard
+*The dashboard that gives you full visibility into platform adoption, user engagement and audit activity across your Dynatrace environment.*
+
+![Adoption & Audit Dashboard](https://github.com/dynatrace-oss/CustomerSuccess/blob/main/Adoption%20%26%20Audit%20Dashboard/screenshot.png "Adoption & Audit Dashboard")
+
+This Dashboard leverages Grail™ audit events and DQL query telemetry to surface actionable insights about how your organization uses Dynatrace. With 34 tiles across 17 sections it covers KPI cards, daily activity trends, app adoption rankings, configuration audit trails, DQL query analytics, workflow health, user engagement scorecards and more.
+
+Admins can download and import the JSON definition of the Dashboard in their own tenant to understand which teams are active, which platform capabilities are under-utilized, and where to focus enablement efforts.
+
+The Adoption & Audit Dashboard is:
+ - **Safe**: Restricted to read-only audit event queries by design. No data ever leaves the Dynatrace tenant.
+ - **Fast**: All analytics happen where the data resides, in Grail™.
+ - **Open source**: Copy, inspect, customize and share it in a few clicks!
+
+**Installation**: Download and import the JSON definition of the Dashboard into your Dynatrace tenant via the Dashboards app.
+
+**Usage**:
+- Monitor overall platform adoption with KPI cards (Total Events, Unique Users, Browser Interactions, Config Changes)
+- Identify the most active users and the most accessed endpoints
+- Track app-level usage rankings and trends over time
+- Audit configuration changes by schema and by user
+- Analyze DQL query volume, data consumption and query success rates
+- Monitor workflow execution health with color-coded thresholds
+- Measure user engagement depth (apps per user, observability domain coverage)
+- Share filtered views with stakeholders to drive adoption initiatives
+
 ## Software Obsolescence Management
 *The solution that lets you stay on top of your software portfolio.*
 
