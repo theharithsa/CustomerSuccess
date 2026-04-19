@@ -23,7 +23,7 @@ The Dynatrace Tenant Review is:
 ## Adoption & Audit Dashboard
 *The dashboard that gives you full visibility into platform adoption, user engagement and audit activity across your Dynatrace environment.*
 
-![Adoption & Audit Dashboard](https://github.com/dynatrace-oss/CustomerSuccess/blob/main/Adoption%20%26%20Audit%20Dashboard/screenshot.png "Adoption & Audit Dashboard")
+![Adoption & Audit Dashboard](./Adoption%20%26%20Audit%20Dashboard/screenshot.png "Adoption & Audit Dashboard")
 
 This Dashboard leverages Grail™ audit events and DQL query telemetry to surface actionable insights about how your organization uses Dynatrace. With 34 tiles across 17 sections it covers KPI cards, daily activity trends, app adoption rankings, configuration audit trails, DQL query analytics, workflow health, user engagement scorecards and more.
 
